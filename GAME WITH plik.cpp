@@ -16,7 +16,7 @@ using namespace std;
 //GRAAA
 int main(){
     while(true){
-        cout<<"1:Dodaj do listy sˆowek..\n2:Poka¾ list©\n3:Zacznij gr©\n4:Wyjscie z programu\n>";
+        cout<<"1:Add into list \n2:Show list \n3:Start \n4:End\n>";
         z=getch();
         switch(z){
             case '1':zapis();     break;
@@ -29,8 +29,8 @@ return(0);
 }
 
 void zapis(){
-    cout<<"Witaj w swiecie tˆumaczenia!";
-    cout<<"\n Wpisz sˆowo po Polsku a nast©pnie tˆumaczenie\n>";
+    cout<<"Hello,";
+    cout<<"\n Enter word and translation\n>";
 
 
     tlum.open("dane.txt",ios::out|ios::app);
@@ -38,19 +38,19 @@ void zapis(){
     while(true){
     if(i>0){
         system("cls");
-        cout<<"Wpisz 'c' aby zakonczyc\n";
-        cout<<"Podaj po Polsku\n> ";
+        cout<<"Enter 'c' to end\n";
+        cout<<"Enter word\n> ";
         }
     getline(cin,a);
         if(a=="c"){break;}
     tlum<<a<<endl;
-    cout<<"Teraz podaj tˆumaczenie\n> ";
+    cout<<"Enter translation\n> ";
     getline(cin,a);
     tlum<<a<<endl;
     i++;
     }
     tlum.close();
-    Sleep(250);
+    Sleep(200);
 
 
 
@@ -59,7 +59,7 @@ void odczyt(){
     system("cls");
     tlum.open("dane.txt",ios::in);
     if(tlum.good()==false){
-        cout<<"Nie ma takiego pliku, najpierw zapisz dane ";
+        cout<<"No file, insert data first";
         exit(0);}
     int nr=1;
     string P,A;
@@ -80,7 +80,7 @@ void odczyt(){
 void gra(){
     tlum.open("dane.txt",ios::in);
     if(tlum.good()==false){
-        cout<<"Nie ma takiego pliku, najpierw zapisz dane ";
+        cout<<"No file, insert data";
         exit(0);}
     int nr=1;
     string P,A;
@@ -93,15 +93,15 @@ void gra(){
          nr++;
          if (nr==3)nr=1;
          if (nr==1){
-         cout<<nr<<" Po Polsku: "<<P<<"\nPo NIEMIECKU: ";
+         cout<<nr<<" Word: "<<P<<"\n Translation ";
          cin>>odpowiedz;
             if(odpowiedz==A){
-                cout<<"JESTE— SUPER!\n";
-            } else {cout<<"Pudlo, odpowied« to: "<<A<<endl;}
+                cout<<"NICE! \n";
+            } else {cout<<"Wrong. Translation.. "<<A<<endl;}
          }
     }
     tlum.close();
-    cout<<"\nTo koniec, tym razem dodaj ich wiecej!\n\a";
+    cout<<"\nThat will be all, thank you.\n\a";
 }
 void wyjscie(){
 exit(0);
